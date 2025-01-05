@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Application - Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: relative;
+      background: linear-gradient(135deg, #3c8d99, #4f9fbc);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('your-header-image.jpg') no-repeat center center/cover;
+      opacity: 0.15;
+      z-index: -1;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease-out 0.5s;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 80px;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #4f9fbc;
+      margin: 20px auto 0;
+      border-radius: 2px;
+    }
+
+    .feature-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .feature-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .feature-box h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .feature-box p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .cta-section {
+      background: #4f9fbc;
+      padding: 60px 0;
+      text-align: center;
+      color: white;
+      margin-top: 80px;
+    }
+
+     h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      animation: fadeIn 1.5s ease-out;
+    }
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      background: #fff;
+      color: #4f9fbc;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .cta-button:hover {
+      background-color: #e1f5f1;
+    }
+
+    .image-section {
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .feature-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+/* Styling for Technologies Section */
+.tech-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.tech-heading {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 700;
+}
+
+.tech-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.tech-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card i {
+    font-size: 4rem;
+    color: #5d5f61;
+    margin-bottom: 20px;
+}
+
+.tech-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: #343a40;
+}
+
+.tech-card p {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.tech-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tech-card:hover i {
+    color: #007bff;
+}
+
+.tech-card:hover h3 {
+    color: #007bff;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Automation Tool</h1>
+    <p style="display: block; font-weight: bolder;">Iam passionate about automation and simplifying complex workflows. Inspired by platforms like CyberArk, I developed a Spring Boot application with 20+ innovative features</p>
+  </header>
+
+  <div class="container">
+    <!-- Key Features -->
+    <div class="section-title">
+      <h2>Application Admin Console</h2>
+    </div>
+
+
+   <!-- Image Section -->
+   <div class="image-section">
+    <img src="images/application.JPG" alt="Application HomePage">
+    <h2>Key Features</h2>
+  </div>
+
+
+   
+      <div class="feature-container">
+        <div class="feature-box">
+          <i class="fas fa-desktop"></i>
+          <h3>Centralized Tools</h3>
+          <p>Browser-hosted Chrome, PuTTY, and utilities for seamless remote access.</p>
+        </div>
+      
+        <div class="feature-box">
+          <i class="fas fa-heartbeat"></i>
+          <h3>Health Monitoring</h3>
+          <p>Real-time CPU, memory, and heap metrics with interactive charts for individual Services and Softwares.</p>
+        </div>
+  
+        <div class="feature-box">
+          <i class="fas fa-clipboard-list"></i> <!-- Using a more appropriate icon -->
+          <h3>Logs Viewer</h3>
+          <p class="feature-description">
+          Instantly view logs with options for multiple viewing modes and custom refresh rates. No need to access the backend.</p>
+ 
+        </div>
+        
+
+       
+  
+        <div class="feature-box">
+          <i class="fas fa-key"></i>
+          <h3>Password Management</h3>
+          <p>Passwordless authentication and secure extensions for easy access.</p>
+        </div>
+  
+        <div class="feature-box">
+          <i class="fas fa-tachometer-alt"></i>
+          <h3>Performance Optimization</h3>
+          <p>Prometheus for server stats, cache cleaning, and alerts to enhance performance.</p>
+        </div>
+  
+        <div class="feature-box">
+          <i class="fas fa-database"></i>
+          <h3>Database Operations</h3>
+          <p>Comprehensive PostgreSQL management and log analysis tools.</p>
+        </div>
+  
+        <div class="feature-box">
+          <i class="fas fa-sync-alt"></i>
+          <h3>Dynamic Workflows</h3>
+          <p>Automated PT slot booking and OSS request tracking for smooth workflows.</p>
+        </div>
+  
+        <div class="feature-box">
+          <i class="fas fa-search"></i>
+          <h3>Security Audits</h3>
+          <p>Detailed tracking of user commands, IPs, and timestamps for auditing purposes.</p>
+        </div>
+        <div class="feature-box">
+          <i class="fas fa-server"></i>
+          <h3>Server Management</h3>
+          <p>SSHFS mounting, VNC browsers, and Guacamole SSH sessions for efficient server control.</p>
+        </div>
+        <div class="feature-box">
+          <i class="fas fa-code-branch"></i>
+          <h3>SVN Insights</h3>
+          <p>Commit history visualization with employee IDs and detailed commit insights.</p>
+        </div>
+
+        <div class="feature-box">
+          <i class="fas fa-sliders-h"></i>
+
+
+
+          <h3>Ansible Integration</h3>
+          <p>Automated log cleanup and manage unwanted large log files using Ansible, ensuring smooth and efficient server management.</p>
+        </div>
+        
+        <div class="feature-box">
+          <i class="fas fa-cogs"></i>
+          <h3>One-Click Utilities</h3>
+          <p>Installing software and RHEL packages is now as simple as a single click, putting the power of automation right at your fingertips.</p>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <section class="tech-section">
+      <h2 class="tech-heading">Technologies Used</h2>
+      <div class="tech-container">
+          <!-- Spring Boot -->
+          <div class="tech-card">
+              <i class="fab fa-java"></i>
+              <h3>Spring Boot</h3>
+              <p>Used for building robust backend applications and APIs with Java, ensuring scalability and ease of development.</p>
+          </div>
+  
+          <!-- Ansible -->
+          <div class="tech-card">
+              <i class="fab fa-ansible"></i>
+              <h3>Ansible</h3>
+              <p>Automating log deletion and truncation tasks, managing configurations and provisioning servers efficiently.</p>
+          </div>
+   
+          <!-- Python -->
+          <div class="tech-card">
+              <i class="fab fa-python"></i>
+              <h3>Python</h3>
+              <p>For data collection, parsing logs, and automating backend tasks with scripts for data analysis.</p>
+          </div>
+  
+          <!-- Shell Script -->
+          <div class="tech-card">
+              <i class="fas fa-terminal"></i>
+              <h3>Shell Script</h3>
+              <p>Executing dynamic commands on servers for automation and system management.</p>
+          </div>
+  
+          <!-- Cron -->
+          <div class="tech-card">
+              <i class="fas fa-clock"></i>
+              <h3>Cron</h3>
+              <p>Scheduling automated tasks, like log cleanup and periodic server management activities.</p>
+          </div>
+  
+          <!-- HTML & CSS -->
+          <div class="tech-card">
+              <i class="fab fa-html5"></i>
+              <i class="fab fa-css3-alt"></i>
+              <h3>HTML & CSS</h3>
+              <p>For front-end design and layout of the web application with responsive UI and clean aesthetics.</p>
+          </div>
+  
+          <!-- Grafana -->
+          <div class="tech-card">
+            <i class="fas fa-chart-line"></i>
+              <h3>Grafana & Prometheus</h3>
+              <p>Visualizing server metrics and statistics in a beautifully interactive dashboard. Collecting and monitoring real-time server metrics</p>
+          </div>
+  
+          <!-- Promtail & Loki -->
+          <div class="tech-card">
+              <i class="fas fa-cloud"></i>
+              <h3>Promtail & Loki</h3>
+              <p>Real-time log collection and storage solution, capturing and visualizing logs in Grafana.</p>
+          </div>
+  
+          <!-- SSHFS Mounting -->
+          <div class="tech-card">
+              <i class="fas fa-server"></i>
+              <h3>SSHFS Mounting</h3>
+              <p>Mounting directories between servers securely for seamless file access and management.</p>
+          </div>
+ 
+
+    
+   
+            <!-- Linux Cockpit -->
+            <div class="tech-card">
+              <i class="fas fa-satellite"></i>
+
+
+                <h3>Linux Cockpit</h3>
+                <p>Provides real-time monitoring and management of servers, offering a powerful web-based interface for seamless admin operations.</p>
+               
+                 
+        </div>
+      </div>
+    
+  </section>
+  
+  
+ 
+
+  <footer>
+    
+  </footer>
+
+</body>
+</html>
